@@ -35,7 +35,7 @@ LABEL summary="$SUMMARY" \
 
 RUN INSTALL_PKGS="rh-python36 rh-python36-python-devel rh-python36-python-setuptools rh-python36-python-pip nss_wrapper \
         httpd24 httpd24-httpd-devel httpd24-mod_ssl httpd24-mod_auth_kerb httpd24-mod_ldap \
-        httpd24-mod_session atlas-devel gcc-gfortran libffi-devel libtool-ltdl enchant rh-mysql57 mysql" && \
+        httpd24-mod_session atlas-devel gcc-gfortran libffi-devel libtool-ltdl enchant rh-mysql57 mysql-community-client" && \
     yum install -y centos-release-scl && \
     rpm -Uvh https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm && \
     yum-config-manager --disable mysql80-community && \
