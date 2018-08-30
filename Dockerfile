@@ -37,7 +37,9 @@ RUN INSTALL_PKGS="rh-python36 rh-python36-python-devel rh-python36-python-setupt
         httpd24 httpd24-httpd-devel httpd24-mod_ssl httpd24-mod_auth_kerb httpd24-mod_ldap \
         httpd24-mod_session atlas-devel gcc-gfortran libffi-devel libtool-ltdl enchant rh-mysql57 mysql" && \
     yum install -y centos-release-scl && \
-    rpm -Uvh mysql57-community-release-el7-9.noarch.rpm && \
+    rpm -Uvh https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm && \
+    yum-config-manager --disable mysql80-community && \
+    yum-config-manager --enable mysql57-community && \
     yum -y --setopt=tsflags=nodocs install --enablerepo=centosplus $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     # Remove centos-logos (httpd dependency) to keep image size smaller.
